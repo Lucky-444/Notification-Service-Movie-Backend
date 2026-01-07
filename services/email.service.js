@@ -6,7 +6,7 @@ const mailer = (userId, password, mailData) => {
     auth: {
       user: userId,
       pass: password,
-    },
+    },   
   });
 };
 
