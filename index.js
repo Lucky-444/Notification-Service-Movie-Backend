@@ -12,6 +12,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Home page for noti service");
+});
+
 app.listen(process.env.PORT, async () => {
   console.log("Notification Service Started");
 
