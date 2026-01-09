@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const ticketRoutes = require('./routes/ticket.routes');
+const Cron = require('./crons/cron');
 
 dotenv.config();
 app.use(bodyParser.json());
@@ -21,5 +22,9 @@ app.listen(process.env.PORT, async () => {
   try {
     await mongoose.connect(process.env.DB_URL);
     console.log("SuccessFully Connected to Mongo");
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
+
+  Cron.mailerCron();
 });

@@ -4,7 +4,7 @@ const Mailer = require("../services/email.service");
 
 const mailerCron = () => {
   const mailer = Mailer(process.env.EMAIL, process.env.EMAIL_PASS);
-  cron.schedule("*/9 * * * *", async () => {
+  cron.schedule("*/2 * * * *", async () => {
     console.log("Executing Cron Again");
     const notificationsToBeSent = await Ticket.find({
       status: "PENDING",
