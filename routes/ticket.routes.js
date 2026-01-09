@@ -1,4 +1,4 @@
-const {createTicket} = require('../controllers/ticket.controller');
+const {createTicket, getTicket, getAllTickets} = require('../controllers/ticket.controller');
 const { verifyTicketNotificationCreateRequest } = require('../middlewares/ticket.middlewares');
 
 const routes = (app) => {
@@ -7,6 +7,9 @@ const routes = (app) => {
            verifyTicketNotificationCreateRequest,
           createTicket
          );
+
+         app.get("/notiservice/api/v1/notifications/:id" , getTicket);
+         app.get("/notiservice/api/v1/notifications", getAllTickets);
 }
 
 
