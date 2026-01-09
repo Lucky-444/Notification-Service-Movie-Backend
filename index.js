@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const ticketRoutes = require('./routes/ticket.routes');
 
 dotenv.config();
 app.use(bodyParser.json());
@@ -12,10 +13,8 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("Home page for noti service");
-});
 
+ticketRoutes(app);
 app.listen(process.env.PORT, async () => {
   console.log("Notification Service Started");
 
