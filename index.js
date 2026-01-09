@@ -5,8 +5,17 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const ticketRoutes = require('./routes/ticket.routes');
 const Cron = require('./crons/cron');
+const cors = require('cors');
+
 
 dotenv.config();
+// app.use(
+//   cors({
+//     origin: "http://localhost:3001", // your frontend origin
+//     credentials: true, // allow cookies to be sent
+//   })
+// );
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
